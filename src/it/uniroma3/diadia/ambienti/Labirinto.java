@@ -22,10 +22,10 @@ public class Labirinto {
     	
 		/* crea stanze del labirinto */
 		Stanza atrio = new Stanza("Atrio");
-		Stanza aulaN11 = new Stanza("Aula N11");
+		StanzaBuia aulaN11 = new StanzaBuia("Aula N11","lanterna");
 		Stanza aulaN10 = new Stanza("Aula N10");
-		Stanza laboratorio = new Stanza("Laboratorio Campus");
-		Stanza biblioteca = new Stanza("Biblioteca");
+		StanzaBloccata laboratorio = new StanzaBloccata("Laboratorio Campus","nord","chiave");
+		StanzaMagica biblioteca = new StanzaMagica("Biblioteca");
 		
 		/* collega le stanze */
 		atrio.impostaStanzaAdiacente("nord", biblioteca);

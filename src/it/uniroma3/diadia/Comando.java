@@ -1,47 +1,23 @@
-package it.uniroma3.diadia;
+package it.uniroma3.diadia.comandi;
 
-
-
-import java.util.Scanner;
-
+import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.IO;
 /**
- * Questa classe modella un comando.
- * Un comando consiste al piu' di due parole:
- * il nome del comando ed un parametro
- * su cui si applica il comando.
- * (Ad es. alla riga digitata dall'utente "vai nord"
- *  corrisponde un comando di nome "vai" e parametro "nord").
- *
- * @author  docente di POO
- * @version base
+ * Interfaccia per la gestione polimorfica dei comandi.
  */
+public interface Comando {
+    /**
+     * Esegue la logica specifica del comando.
+     */
+    public void esegui(Partita partita);
 
-public class Comando {
+    /**
+     * Imposta il parametro del comando (es. la direzione per 'vai').
+     */
+    public void setParametro(String parametro);
+    
+    public void setIO(IO io);
 
-    private String nome;
-    private String parametro;
-
-    public Comando(String istruzione) {
-		Scanner scannerDiParole = new Scanner(istruzione);
-
-		// prima parola: nome del comando
-		if (scannerDiParole.hasNext())
-			this.nome = scannerDiParole.next(); 
-
-		// seconda parola: eventuale parametro
-		if (scannerDiParole.hasNext())
-			this.parametro = scannerDiParole.next();
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public String getParametro() {
-        return this.parametro;
-    }
-
-    public boolean sconosciuto() {
-        return (this.nome == null);
-    }
+    public String getNome();
+    public String getParametro();
 }
